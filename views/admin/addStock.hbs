@@ -1,0 +1,99 @@
+{{!< layout}} 
+
+{{#extend "pageName"}}Post a Job{{/extend}}
+
+{{#extend "customCSS"}} 
+<link rel="stylesheet" href="/css/form.css">
+<link rel="stylesheet" href="/css/postjob.css">
+{{/extend}}
+
+{{#extend "customJS"}}
+<script>
+    function preSubmit(){
+        document.getElementById("description").value = document.getElementById("editor").firstChild.innerHTML;
+    }
+</script>
+{{/extend}}
+
+{{#extend "heroTitle"}}Post a Job{{/extend}}
+
+{{#extend "breadcrumbs"}}
+<a href="">Home</a> / Post a Job
+{{/extend}}
+
+{{#extend "body"}}
+<section class="section">
+    <div class="container content">
+        <div>
+            <form class="form" method="POST" action="" id="myForm" onsubmit="preSubmit();">
+                <div class="post-job-grid">
+                    <label for="title">
+                        <div>Medicine name:</div>
+                        <input type="text" id="med_name" name="med_name" placeholder="Name of the medicine">
+                    </label>
+            
+                    <label for="no_of_vacancies">
+                        <div>Vacancies:</div>
+                        <input type="text" id="no_of_vacancies" placeholder="No. of vacancies" name="no_of_vacancies">
+                    </label>
+            
+                    <label for="location">
+                        <div>Location:</div>
+                        <select id="location" name="city">
+                            <option value="">- Select the Location -</option>
+                            {{#each cities}}
+                            <option value="{{ this.name }}">{{ this.name }}</option>
+                            {{/each}}
+                        </select>
+                    </label>
+            
+                    <label for="category">
+                        <div>Category:</div>
+                        <select id="category" name="category">
+                            <option value="">- Select the Category -</option>
+                            {{#each categories}}
+                            <option value="{{ this.name }}">{{{ this.name }}}</option>
+                            {{/each}}
+                        </select>
+                    </label>
+            
+                    <label for="tags">
+                        <div>Tags:</div>
+                        <input type="text" id="tags" placeholder="eg: software, hospital, car, graphics..." name="keywords">
+                    </label>
+            
+                    <label for="editor" class="col-2">
+                        <div>Describe the job:</div>
+                        <input id="editor" type="text" placeholder="Write your description here...">
+                    </label>
+            
+                    <input type="hidden" name="description" id="description">
+            
+                    <label for="email">
+                        <div>Contact Email:</div>
+                        <input type="text" id="email" name="contact_email" placeholder="abc@xyz.com">
+                    </label>
+            
+                    <label for="salary">
+                        <div>Salary:</div>
+                        <input type="text" id="salary" placeholder="10000" name="salary">
+                    </label>
+            
+                    <label for="expiry_date">
+                        <div>Expires In:</div>
+                        <select name="expiry_date">
+                            <option value="7">7 Days</option>
+                            <option value="1">1 Day</option>
+                            <option value="3">3 Days</option>
+                            <option value="15">15 Days</option>
+                            <option value="30">1 Month</option>
+                        </select>
+                    </label>
+                    <div></div>
+                    <button class="btn item2" style="width: auto; padding: 1rem 2rem;">Post a Job</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+{{/extend}}

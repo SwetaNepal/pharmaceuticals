@@ -1,0 +1,25 @@
+<script>
+    var socket = io('http://localhost:9119');
+
+    socket.on('connect', function () {
+    });
+
+    socket.on('disconnect', function () {
+    });
+
+    socket.on('callRequest', function(data){
+        console.log(data);
+
+        var myID = '{{myID}}';
+        {{#if seller}}
+        var myType = 'seller';
+        {{/if}}
+        {{#if admin}}
+        var myType = 'company';
+        {{/if}}
+
+        console.log(myType, myID, data);
+    });
+
+        
+</script>

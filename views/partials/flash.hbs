@@ -1,0 +1,5 @@
+<script>
+    {{#each flash}}
+        makeToast('{{this.type}}', '{{this.message}}');
+    {{/each}}
+</script>

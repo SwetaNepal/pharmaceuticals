@@ -1,0 +1,98 @@
+html{
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.8)), to(rgba(0, 0, 0, 0.6))), url("bg.jpg");
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6)), url("../images/bg.jpg");
+  background-attachment: fixed;
+}
+
+.main--header{
+  position: relative;
+}
+
+.hero {
+  height: 400px;
+  background: transparent;
+}
+
+.hero > div {
+  top: 235px;
+}
+
+.hero > div h1 {
+  padding: 0;
+  margin-bottom: 1rem;
+}
+
+.section{
+  background: #fff;
+  padding: 3rem 0rem;
+  width: 450px;
+  margin: auto;
+  left: 0;
+  right: 0;
+  margin-bottom: 4rem;
+  border-radius: 5px;
+  box-shadow: #424242 0px 0px 10px;
+}
+
+::-webkit-scrollbar {
+  display: none;
+  width: 10px;
+  border-radius: 10px;
+}
+
+.form-login-registration {
+  max-width: 350px;
+  margin: auto;
+}
+
+.form-login-registration .form-title-login,
+.form-login-registration .form-title-registration {
+  display: inline-block;
+  margin: 0rem 1rem 2rem;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 0.8rem 1.5rem;
+  border-radius: 50px;
+  border: 2px solid transparent;
+}
+
+.form-login-registration .form-title-login.active,
+.form-login-registration .form-title-registration.active {
+  border-color: black;
+}
+
+.form-login-registration .login {
+  display: block;
+}
+
+.form-login-registration .registration {
+  display: true;
+}
+
+.form-login-registration .form {
+  text-align: left;
+}
+
+.form-login-registration .form label {
+  padding: 0rem;
+}
+
+.form-login-registration .form label div:first-child {
+  padding-bottom: .5rem;
+  padding-top: 1rem;
+  color: #7A7A7A;
+}
+
+.form-login-registration .form input, .form-login-registration .form button, .form-login-registration .form select {
+  padding: .75rem 1rem;
+  margin: 0;
+  width: 100%;
+  display: block;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.form-login-registration .form button{
+  margin-top: 2rem;
+}
+/*# sourceMappingURL=login.css.map */

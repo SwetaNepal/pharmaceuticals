@@ -1,0 +1,56 @@
+.hero {
+  height: 400px;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.7)), to(rgba(0, 0, 0, 0.6))), url("bg_par.jpg");
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.6)), url("../images/bg_par.jpg");
+}
+
+.hero > div {
+  top: 225px;
+}
+
+.profile-image{
+  font-size: 3rem;
+  height: 125px;
+  border-radius: 50%;
+}
+
+.section{
+  padding: 4rem 0;
+}
+
+.one{
+  display: grid;
+  display: -ms-grid;
+  grid-template-columns: 125px auto;
+  -ms-grid-columns: 125px auto;
+  align-items: center;
+  grid-gap: 5rem;
+  padding-top: 0;
+}
+
+.one .title{
+  font-size: 1.7rem;
+}
+
+.one .category{
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.one .color-link{
+  font-size: 1.1rem;
+  color: #1275C9;
+}
+
+.one .color-link:hover {
+  color: #1275C9;
+}
+
+.content{
+  align-items: center;
+  grid-template-rows: auto auto;
+  -ms-grid-rows: auto auto;
+  -ms-grid-columns: auto;
+  grid-template-columns: auto;
+  grid-gap: 5rem;
+}

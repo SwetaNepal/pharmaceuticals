@@ -1,0 +1,149 @@
+{{!< layout}} 
+
+{{#extend "pageName"}}Home{{/extend}}
+
+{{#extend "customCSS"}}
+<link rel="stylesheet" href="/css/form.css"/>
+{{/extend}}
+
+{{#extend "hero"}}
+    <div class="hero">
+        <div class="med-search">
+            <h1>Take good care of your family health.</h1>
+            <div class="find-job">
+                <form action="/find" method="POST">
+                    <input type="text" name="medicine-name" id="" placeholder="Search for medicines"/>
+                    <button class="btn find-a-job" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{{/extend}}
+
+<script>
+    function prescriptionCheck() {
+        var checkBox = document.getElementById("prescription_enable");
+        // Get the output text
+        var prescription = document.getElementById("prescription-details");
+
+        // If the checkbox is checked, display the output text
+        if (checkBox.checked == true) {
+            prescription.style.display = "block";
+        } else {
+            prescription.style.display = "none";
+        }
+    }
+</script>
+
+{{#extend "body"}}
+    <section class="section why">
+        <div class="title">Order Medicines</div>
+        <div class="container">
+            {{#each medicines}}
+            <div data-href = "/medicines/view/{{this.id}}" class="items">
+                <div>
+                    <div class="title-head">{{{this.med_name}}}</div>
+                    <div class="description">{{{this.med_type}}}</div>
+                </div>
+                <i class="mdi mdi-cart-plus"></i>
+            </div>
+            {{/each}}
+        </div>
+        <div class="container customer-details">
+            <form action="/medicines/order" method="POST" class="order-form form">
+                <div id="customer-details">
+                    <div class="title">Customer Details</div>
+                    <div class="form-grid">
+                        <label for="customer_id">
+                            <div>Id:</div>
+                            <input type="number" id='customer_id' name="customer_id"
+                                value="{{#if logBody.customer_id}}{{ logBody.customer_id }}{{/if}}">
+                        </label>
+                        <label for="customer_name">
+                            <div>Name:</div>
+                            <input type="text" id='customer_name' name="customer_name"
+                                value="{{#if logBody.customer_name}}{{ logBody.customer_name }}{{/if}}">
+                        </label>
+                        <label for="customer_address">
+                            <div>Address:</div>
+                            <input type="text" id='customer_address' name="customer_address"
+                                value="{{#if logBody.customer_address}}{{ logBody.customer_address }}{{/if}}">
+                        </label>
+                        <label for="gender">
+                            <div>Gender:</div>
+                            <select id="gender" name="gender">
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="unspecified">Unspecified</option>
+                            </select>
+                        </label>
+                        <label for="customer_phone">
+                            <div>Phone:</div>
+                            <input type="number" id='customer_phone' name="customer_address"
+                                value="{{#if logBody.customer_phone}}{{ logBody.customer_phone }}{{/if}}">
+                        </label>
+                        <label for="customer_dob">
+                            <div>Date of birth:</div>
+                            <input type="date" id='customer_dob' name="customer_dob"
+                                value="{{#if logBody.customer_dob}}{{ logBody.customer_dob }}{{/if}}">
+                        </label>
+                    </div>
+                </div>
+                <div >
+                    <div style="display: inline;">
+                        <div class="title">Prescription Details</div>
+                        <input type="checkbox" id="prescription_enable" name = "prescription_enable" onclick="prescriptionCheck()">
+                    </div>                    
+                    <div class="form-grid" id="prescription-details">
+                        <label for="prescription_id">
+                            <div>ID:</div>
+                            <input type="number" id='prescription_id' name="prescription_id">
+                        </label>
+                        <label for="hospital">
+                            <div>Hospital:</div>
+                            <input type="text" id='hospital' name="hospital"
+                                value="{{#if logBody.hospital}}{{ logBody.hospital }}{{/if}}">
+                        </label>
+                        <label for="prescription_number">
+                            <div>Prescription Number:</div>
+                            <input type="text" id='prescription_number' name="prescription_number"
+                                value="{{#if logBody.prescription_number}}{{ logBody.prescription_number }}{{/if}}">
+                        </label>
+                        <label for="doctor_assigned">
+                            <div>Doctor:</div>
+                            <input type="text" id='doctor_assigned' name="doctor_assigned"
+                                value="{{#if logBody.doctor_assigned}}{{ logBody.doctor_assigned }}{{/if}}">
+                        </label>
+                    </div>
+                </div>
+                <div id="insurance-details">
+                    <div class="title">Insurance Details</div>
+                    <input type="checkbox" id="insurance_enable" name="insurance_enable">
+                    <div class="form-grid">
+                        <label for="insurance-company">
+                            <div>Company:</div>
+                            <input type="text" id='insurance_company' name="insurance_company"
+                                value="{{#if logBody.insurance_company}}{{ logBody.insurance_company }}{{/if}}">
+                        </label>
+                        <label for="insurance_number">
+                            <div>Insurance Number:</div>
+                            <input type="text" id='insurance_number' name="insurance_number"
+                                value="{{#if logBody.insurance_number}}{{ logBody.insurance_number }}{{/if}}">
+                        </label>
+                        <label for="insurance_type">
+                            <div>Insurance Type:</div>
+                            <input type="text" id='insurance_type' name="insurance_type"
+                                value="{{#if logBody.doctor_assigned}}{{ logBody.doctor_assigned }}{{/if}}">
+                        </label>
+                        <label for="insurance_discount">
+                            <div>Discount:</div>
+                            <input type="text" id='insurance_discount' name="insurance_discount"
+                                value="{{#if logBody.insurance_discount}}{{ logBody.insurance_discount }}{{/if}}">
+                        </label>
+                    </div>
+                </div>
+                <button class="btn" style="align-self: start;">Place an Order</button>
+            </form>
+        </div>        
+    </section>
+{{/extend}}

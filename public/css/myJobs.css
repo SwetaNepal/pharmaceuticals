@@ -1,0 +1,77 @@
+html{
+    background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.7)), to(rgba(0, 0, 0, 0.6))),
+    url("bg_par.jpg");
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.6)),
+    url("../images/bg_par.jpg");
+}
+
+.hero{
+    background: transparent;
+}
+
+.container{
+    display: grid;
+    display: -ms-grid;
+    -ms-grid-columns: (minmax(32px, 1fr))[auto-fit];
+    grid-template-columns: repeat(auto-fit, minmax(32px, 1fr));
+    grid-gap: 2rem;
+    background: transparent;
+    justify-items: start;
+}
+
+.section{
+    padding-top: 0;
+    padding-bottom: 4rem;
+}
+
+.container .grid-item{
+    display: grid;
+    display: -ms-grid;
+    background: white;
+    box-shadow: #202020 2px 2px 15px;
+    padding-right: 2.5rem;
+    text-align: start;
+    border-radius: 5px;
+    min-width: 250px;
+    grid-template-columns: auto 2rem;
+    -ms-grid-columns: auto 3rem;
+    grid-gap: 2rem;
+    align-items: center;
+}
+
+.container .grid-item .delete {
+    display: none;
+    padding: 0.5rem 1rem;
+    color: #a6a6a6;
+    font-size: 1.5rem;
+    border-radius:50%;
+    transition: .3s all ease-in-out;
+    -moz-transition: .3s all ease-in-out;
+    -webkit-transition: .3s all ease-in-out;
+}
+
+.container .grid-item:hover{
+    cursor: pointer;
+}
+
+.container .grid-item:hover .delete{
+    display: block;
+}
+
+.container .delete:hover{
+    color: crimson;
+}
+
+.container .grid-item .title{
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.container .grid-item .desc{
+    font-size: 1rem;
+    margin-top: 0.3rem;
+}
+
+.container .grid-item .job-info{
+    padding: 2rem 1.5rem 2rem 2.5rem;
+}
